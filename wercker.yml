@@ -33,6 +33,7 @@ deploy:
     - script:
         name: install awscli
         code: |
+          cat .s3cfg
           python --version
           which python
           wget https://bootstrap.pypa.io/get-pip.py
