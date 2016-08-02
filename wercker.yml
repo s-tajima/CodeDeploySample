@@ -30,6 +30,11 @@ deploy:
         code: |
           FILE_DATE=$(date +"%Y%m%d_%H%M")
           FILE_NAME=${FILE_DATE}_${WERCKER_GIT_COMMIT}.tar.gz
+          echo "ls ${WERCKER_OUTPUT_DIR}"
+          ls -al ${WERCKER_OUTPUT_DIR}
+          pwd
+          echo "ls CWD"
+          ls -al
           cp ${WERCKER_OUTPUT_DIR}/* app/
           tar zcvf $FILE_NAME *
           mkdir artifact
