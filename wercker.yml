@@ -9,15 +9,16 @@ build:
 deploy:
   steps:
     - script:
-        name: show archive files
+        name: deploy info
         code: |
+          env
           find .
 
     - script:
         name: archive
         code: |
           FILE_DATE=$(date +"%Y%m%d_%H%M")
-          FILE_NAME=${FILE_DATE}.tar.gz
+          FILE_NAME=${FILE_DATE}_${WERCKER_GIT_COMMIT}.tar.gz
           tar zcvf $FILE_NAME *
           mkdir artifact
           mv $FILE_NAME artifact
