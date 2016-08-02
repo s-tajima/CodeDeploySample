@@ -6,6 +6,13 @@ build:
     # at the right place in the workspace tree
     - setup-go-workspace
 
+    - script:
+        name: go build
+        code: |
+          cd app/
+          go build
+
+
 deploy:
   steps:
     - script:

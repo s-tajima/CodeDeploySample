@@ -1,6 +1,8 @@
 version: 0.0
 os: linux
 files:
+   - source: app
+     destination: /srv/
    - source: nginx
      destination: /etc/nginx/
 hooks:
