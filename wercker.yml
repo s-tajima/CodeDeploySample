@@ -9,11 +9,13 @@ build:
     - script:
         name: go build
         code: |
-          cd app/; go build
-          ls -al
-          ls -al app/
-          pwd
+          cd app/
+          go build
 
+    - script:
+        name: copy binary
+        code: |
+          cp app/app ${WERCKER_OUTPUT_DIR}
 
 deploy:
   steps:
@@ -28,6 +30,7 @@ deploy:
         code: |
           FILE_DATE=$(date +"%Y%m%d_%H%M")
           FILE_NAME=${FILE_DATE}_${WERCKER_GIT_COMMIT}.tar.gz
+          cp ${WERCKER_OUTPUT_DIR} app/
           tar zcvf $FILE_NAME *
           mkdir artifact
           mv $FILE_NAME artifact
