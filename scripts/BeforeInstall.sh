@@ -3,4 +3,6 @@
 mkdir -p /srv/
 
 service nginx stop
-rm -rf /etc/nginx
+rm -rf /etc/nginx/*
+rm -rf /srv/*
+
