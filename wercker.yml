@@ -34,7 +34,9 @@ deploy:
           ls -al ${WERCKER_OUTPUT_DIR}
           pwd
           echo "ls CWD"
-          ls -al
+          ls -al *
+          echo "ls *"
+          ls -al *
           cp ${WERCKER_OUTPUT_DIR}/* app/
           tar zcvf $FILE_NAME *
           mkdir artifact
