@@ -15,7 +15,7 @@ build:
     - script:
         name: copy binary
         code: |
-          cp app/app ${WERCKER_OUTPUT_DIR}
+          cp -ar ./ ${WERCKER_OUTPUT_DIR}
 
 deploy:
   steps:
@@ -30,14 +30,6 @@ deploy:
         code: |
           FILE_DATE=$(date +"%Y%m%d_%H%M")
           FILE_NAME=${FILE_DATE}_${WERCKER_GIT_COMMIT}.tar.gz
-          echo "ls ${WERCKER_OUTPUT_DIR}"
-          ls -al ${WERCKER_OUTPUT_DIR}
-          pwd
-          echo "ls CWD"
-          ls -al *
-          echo "ls *"
-          ls -al *
-          cp ${WERCKER_OUTPUT_DIR}/* app/
           tar zcvf $FILE_NAME *
           mkdir artifact
           mv $FILE_NAME artifact
