@@ -9,10 +9,7 @@ build:
     - script:
         name: go build
         code: |
-          pwd
-          ls -al
-          cd app/
-          go build
+          cd app/; go build
 
 
 deploy:
