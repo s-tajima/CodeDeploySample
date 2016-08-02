@@ -17,7 +17,7 @@ deploy:
         name: archive
         code: |
           FILE_DATE=$(date +"%Y%m%d_%H%M")
-          FILE_NAME=${FILE_DATE}.tgz
+          FILE_NAME=${FILE_DATE}.tar.gz
           tar zcvf $FILE_NAME *
           mkdir artifact
           mv $FILE_NAME artifact
