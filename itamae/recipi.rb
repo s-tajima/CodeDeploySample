@@ -17,3 +17,9 @@ template "/etc/ssh/sshd_config" do
   action :create
   source "files/sshd_config.erb"
 end
+
+directory "/var/log/nginx/" do
+  owner "nginx"
+  group "nginx"
+  mode  "0755"
+end
