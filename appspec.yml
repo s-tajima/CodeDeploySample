@@ -2,7 +2,9 @@ version: 0.0
 os: linux
 files:
    - source: app
-     destination: /srv/
+     destination: /srv/app/
+   - source: itamae
+     destination: /srv/itamae/
    - source: nginx
      destination: /etc/nginx/
 hooks:

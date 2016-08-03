@@ -1,8 +1,10 @@
 #!/bin/bash
 
-echo "[CodeDeploy] restart nginx."
+itamae local /srv/itamae/*.rb
+echo "[CodeDeploy] itamae applied."
+
 service nginx restart
 echo "[CodeDeploy] restarted nginx."
 
 killapp app || true
-nohup /srv/app &
+nohup /srv/app/app &
