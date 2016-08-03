@@ -1,10 +1,13 @@
 #!/bin/bash
 
-itamae local /srv/itamae/*.rb
-echo "[CodeDeploy] itamae applied."
+date >  /tmp/AfterInstall.log
+pwd  >> /tmp/AfterInstall.log
 
-service nginx restart
-echo "[CodeDeploy] restarted nginx."
+itamae local /srv/itamae/*.rb        >> /tmp/AfterInstall.log 2>&1
+echo "[CodeDeploy] itamae applied."  >> /tmp/AfterInstall.log 2>&1
 
-killapp app || true
-nohup /srv/app/app &
+service nginx restart                >> /tmp/AfterInstall.log 2>&1
+echo "[CodeDeploy] restarted nginx." >> /tmp/AfterInstall.log 2>&1
+
+killapp app || true                  
+nohup /srv/app/app &                 >> /tmp/AfterInstall.log 2>&1
